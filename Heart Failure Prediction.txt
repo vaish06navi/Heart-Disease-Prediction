@@ -1,0 +1,31 @@
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix, r2_score, accuracy_score
+
+knn_model = KNeighborsClassifier()
+knn_model.fit(X_train, y_train)
+
+knn_predictions = knn_model.predict(X_test)
+
+knn_accuracy = accuracy_score(y_test, knn_predictions)
+knn_conf_matrix = confusion_matrix(y_test, knn_predictions)
+knn_class_report = classification_report(y_test, knn_predictions)
+
+print("K-Nearest Neighbors Accuracy:", knn_accuracy)
+print("K-Nearest Neighbors Confusion Matrix:\n", knn_conf_matrix)
+print("K-Nearest Neighbors Classification Report:\n", knn_class_report)
+
+-------------------------------------------------------------------------------------
+
+random_forest_model = RandomForestClassifier()
+random_forest_model.fit(X_train, y_train)
+
+random_forest_predictions = random_forest_model.predict(X_test)
+
+random_forest_accuracy = accuracy_score(y_test, random_forest_predictions)
+random_forest_conf_matrix = confusion_matrix(y_test, random_forest_predictions)
+random_forest_class_report = classification_report(y_test, random_forest_predictions)
+
+print("Random Forest Accuracy:", random_forest_accuracy)
+print("Random Forest Confusion Matrix:\n", random_forest_conf_matrix)
+print("Random Forest Classification Report:\n", random_forest_class_report)
